@@ -87,30 +87,51 @@
         <p style="margin:0; font-size: .8em;" class="small">Actualmente en Castellón hay <strike>271</strike> (2010), <strike>1012</strike> (2011), <strike>2.398</strike> (2012), <strong>3.724</strong> (2013) nodos activos y <strike>175</strike> (2010), <strike>363</strike> (2011), <strike>954</strike> (2012), <strong>1.419</strong> proyectados.</p>
       </article>
 
+      <article class='biglogo'>
+        <h2 class="title" style="font-size: 3em;">Hardware</span></h2>
+        <h3 class="subtitle">Omnitik/Mikrotik y Nanostation/Ubiquiti</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
+      </article>
+
       <article>
         <h1 class="title">Hardware Mikrotik</h1>
         <hr class="title" />
         <img class="logo shadow" src="images/hardware.jpg" />
-        <p>Repasemos un poco las características de los routers Mikrotik.</p>
+        <p><a href="http://mikrotik.com">http://mikrotik.com</a></p>
         <ul>
             <li><strong>Amplia gama.</strong> De lo más básico (39 euros) a routers de 1MPPS (400 euros).</li>
             <li><strong>Gestión unificada.</strong> Todo su hardware se administra con el mismo software, <strong>RouterOS</strong>.</li>
-            <li><strong>Linux inside, pero no es libre.</strong> :(</li>
-            <li><strong>Muy barato en comparación a la competencia.</strong> :)</li>
+            <li><strong>Normalmente multivoltaje.</strong> De 12V a 24V.</li>
             <li><strong>Diferentes tipos de licencias según las necesidades.</strong> Normalmente con el hardware adquirido ya viene la licencia adecuada.</li>
+            <li><strong>Muy interesante:</strong> El nuevo hardware con POE-OUT en los puertos ethernet.</li>
         </ul>
       </article>
 
       <article class='fill'>
         <h3></h3>
-        <img alt="RB750" src="images/rb750.jpg" />
         <img alt="Omnitik" src="images/omnitik.jpg" />
         <img alt="Interior Omnitik" src="images/omnitik2.png" />
+        <img alt="RB750" src="images/rb750.jpg" />
         <img alt="RB600: Biblioteca UJI" src="images/rb600.jpg" />
         <img alt="RB450" src="images/rb450.jpg" />
         <div class='source white'>
             <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span></p>
         </div>
+      </article>
+
+      <article>
+        <h1 class="title">Hardware Ubiquiti</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/hardware.jpg" />
+        <p><a href="http://ubnt.com">http://ubnt.com</a></p>
+        <ul>
+            <li><strong>Amplia gama.</strong> Nos centraremos en su línea <strong>airMAX</strong>.</li>
+            <li><strong>Gestión sencilla.</strong> Interfaz web <strong>airOS</strong>.</li>
+            <li><strong>Versátiles, fáciles de instalar, resistentes.</strong></li>
+            <li><strong>Multivoltaje.</strong></li>
+        </ul>
       </article>
 
       <article class='fill'>
@@ -125,19 +146,106 @@
         </div>
       </article>
 
+      <article class='biglogo'>
+        <h2 class="title" style="font-size: 3em;">Supernodo</span></h2>
+        <h3 class="subtitle">Cómo montar un supernodo híbrido</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
+      </article>
+
       <article>
-        <h1 class="title">Qué pretendemos</h1>
+        <h1 class="title">Coordinar el montaje de un supernodo</h1>
         <hr class="title" />
-        <img class="logo shadow" src="images/hardware.jpg" />
-        <p>Vamos a trabajar con la <strong>RB450</strong> que tenemos disponible y le vamos a realizar las siguientes operaciones.</p>
+        <img class="logo shadow" src="images/alliance.png" />
+        <p>Lo primero sería hablar con administradores de otros supernodos cercanos para crear enlaces lo más robustos posibles.</p>
         <ul>
-            <li><strong>Resetearla a valores por defecto.</strong></li>
-            <li><strong>Acceder a ella vía Winbox/WebFig/SSH.</strong></li>
-            <li><strong>Actualizarle el firmware</strong>.</li>
-            <li><strong>Segmentar las interfaces</strong>.</li>
-            <li><strong>Configurarle las IP's</strong></li>
-            <li><strong>Configurar el servidor de túneles PPTP</strong></li>
+            <li><strong>usuaris@castello.guifi.net.</strong> La lista de correo es el punto de información principal para conseguir unirse a la red.</li>
+            <li><strong>Enlaces lo más cortos posibles.</strong> Enlaces demasiado largos derivan en problemas (a medio plazo) con la saturación de frecuencias.</li>
         </ul>
+      </article>
+
+      <article>
+        <h1 class="title">Montaje básico con Omnitik</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/atom.png" />
+        <p>Hoy comentaremos el montaje más básico de supernodo: Omnitik con POE-OUT y antena Nanostation. Intervienen:</p>
+        <ul>
+            <li><strong>Omnitik UPA-5HnD.</strong> Hardware mikrotik que lleva una antena omnidireccional integrada, POE-IN en el puerto principal y POE-OUT en el resto.</li>
+            <li><strong>Nanostation M5.</strong> La utilizaremos para establecer el enlace troncal contra el otro supernodo.</li>
+            <li><strong>Cable ethernet cat5E.</strong> Dependiendo de la localización del transformador necesitaremos más (o menos) tirada de cable.</li>
+            <li><strong>Transformador correctamente dimensionado</strong>. El que viene con la Omnitik UPA es perfectamente válido.</li>
+        </ul>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Mínima expresión del montaje" src="images/full01.png" />
+      </article>
+
+      <article class='biglogo'>
+        <h2 class="title" style="font-size: 2.4em;">Configuración</span></h2>
+        <h3 class="subtitle">Unos conceptos previos a tener en cuenta</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">Configuración de red de los equipos</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/ip.png" />
+        <p>Uno de los conceptos más complicados de entender cuando configuramos un supernodo es que tenemos que definir 3 rangos de IP's diferentes.</p>
+        <ul>
+            <li><strong>IP's de comunicación entre las antenas.</strong></li>
+            <li><strong>IP's de comunicación punto a punto entre los supernodos.</strong></li>
+            <li><strong>IP's públicas de supernodo, normalmente el rango de cobertura de clientes de 30 IP's.</strong></li>
+        </ul>
+      </article>
+
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Comunicación entre las antenas" src="images/comunicacion01.png" />
+        <img alt="Comunicación entre supernodos" src="images/comunicacion02.png" />
+        <img alt="IP's públicas de guifi.net" src="images/comunicacion03.png" />
+
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span>
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">OSPF</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/web.png" />
+        <p>Para que todos los supernodos conozcan las rutas públicas más allá de sus nodos adyacentes, utilizamos el enrutamiento dinámico que nos proporciona <strong>OSPF</strong>.</li>
+        <ul>
+            <li><strong>Calcula la mejor ruta en función del mínimo número de saltos.</strong></li>
+            <li><strong>Una vez configurado, funciona de manera automática.</strong></li>
+            <li><strong>Podemos cambiar pesos para priorizar una ruta, pero no es recomendable.</strong></li>
+        </ul>
+      </article>
+
+      <article class='biglogo'>
+        <h2 class="title" style="font-size: 2.4em;">Registro</span></h2>
+        <h3 class="subtitle">Obteniendo IP's guifi.net</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
+      </article>
+
+      <article>
+        <h1 class="title">Registro en la web y obtención de IP's</h1>
+        <hr class="title" />
+        <p>Jorge nos cuenta esta parte. :)</p>
+      </article>
+
+      <article class='biglogo'>
+        <h2 class="title" style="font-size: 2.4em;">Configuración</span></h2>
+        <h3 class="subtitle">Pasemos a configurar los cacharros</h3>
+        <div class="subinfo">
+          Apreta la tecla <span class="key">&rarr;</span> para avanzar.
+        </div>
       </article>
 
       <article>
