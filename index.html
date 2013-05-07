@@ -251,11 +251,11 @@
       <article>
         <h1 class="title">Reseteo a valores por defecto</h1>
         <hr class="title" />
-        <img class="logo shadow" src="images/rb450mini.jpg" />
+        <img class="logo shadow" src="images/reset.jpg" />
         <p>El router nos puede venir pre-configurado como es el caso. Vamos a resetearlo a valores por defecto primero que nada.</p>
         <ul>
-            <li><strong>Nos conectamos a la web del router:</strong> <a href="http://routerboard.com/RB450G">http://routerboard.com/RB450G</a>.</li>
-            <li><strong>En la "Quick Guide" nos dices que para resetear hay que cortocircuitar el jumper de reset</strong>. Con un destornillador hacemos contacto y realizamos una secuencia de reinicio.</li>
+            <li><strong>Veamos la página web de información del router:</strong> <a href="http://routerboard.com/RBOMNITIKUPA-5HnD">http://routerboard.com/RBOMNITIKUPA-5HnD</a>.</li>
+            <li><strong>En la "Quick Guide" nos dice que para resetear hay que mantener presionado el botón durante un ciclo de boot</strong>. Con un destornillador hacemos contacto y realizamos una secuencia de reinicio.</li>
         </ul>
       </article>
 
@@ -317,10 +317,10 @@
       </article>
 
       <article>
-        <h1 class="title">Actualicemos el firmware</h1>
+        <h1 class="title">Opcional: Actualizar el firmware</h1>
         <hr class="title" />
         <img class="logo shadow" src="images/firmware.jpg" />
-        <p>Lo primero que suelo hacer yo es bajar la última versión de firmware y actualizar. Es un proceso sencillo e inocuo con el que no podemos romper nada.</p>
+        <p>Es recomendable bajar la última versión de firmware y actualizar. Es un proceso sencillo e inocuo con el que no podemos romper nada si no hacemos el cafre.</p>
         <ul>
             <li><strong>Descargamos el último firmware de la web de Mikrotik:</strong> <a href="http://http://www.mikrotik.com/download">http://www.mikrotik.com/download</a></li>
             <li><strong>Descargamos el paquete NPK, a no ser que necesitemos funciones adicioneles (bajaríamos el .zip)</strong></li>
@@ -336,7 +336,6 @@
         <p>Este cacharro Mikrotik lleva un switch de 4 puertos, que nos va a interesar desligar, de manera que cada puerto será un interfaz en un segmento de red diferente. Para conseguirlo, accedemos a la siguiente sección:</p>
         <br />
         <img src="images/switch01.png" />
-        <p>Comentamos entre todos como cambiarlo</p>
       </article>
 
       <article>
@@ -346,7 +345,16 @@
         <p>Veamos ahora cómo tenemos las interfaces y les ponemos comentarios para saber qué tenemos que conectar en cada puerto.</p>
         <br />
         <img src="images/interfaces01.png" />
-        <p>Comentamos entre todos como cambiarlo</p>
+
+      </article>
+
+      <article>
+        <h1 class="title">Alimentar puertos</h1>
+        <hr class="title" />
+        <img class="logo shadow" src="images/rb450mini.jpg" />
+        <p>Podemos inyectar el POE-out sobre el puerto que queramos desde línea de comandos si disponemos de una Omnitik UPA.</p>
+        <br />
+        <img src="images/poe.png" />
 
       </article>
 
@@ -354,89 +362,46 @@
         <h1 class="title">Configurar las direcciones IP</h1>
         <hr class="title" />
         <img class="logo shadow" src="images/ip.jpg" />
-        <p>Configuremos ahora las direcciones IP que queremos poner en cada segmento de Red.</p>
+        <p>Configuremos ahora las direcciones IP que queremos poner en cada segmento de red según nos las ha asignado la web de guifi.net.</p>
         <br />
         <img src="images/ip01.png" />
-        <p>Comentamos entre todos como cambiarlo</p>
-
       </article>
 
       <article>
-        <h1 class="title">Usuarios</h1>
+        <h1 class="title">Configurar el OSPF</h1>
         <hr class="title" />
-        <img class="logo shadow" src="images/user.png" />
-        <p>Vamos a ver cómo cambiar la contraseña del usuario <strong>admin</strong>, y también crear un usuario <strong>guest</strong> con acceso anónimo en solo lectura.</p>
-
-      </article>
-
-      <article>
-        <h1 class="title">Cliente DHCP en el puerto WAN</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/dhcp-logo.png" />
-        <p>El pueto WAN estará conectado con el router ADSL, así que en ese puerto configuramos la recepción de una dirección IP vía DHCP, como si fuera un equipo más.</p>
+        <img class="logo shadow" src="images/ospf-logo.png" />
+        <p>Una vez comprobada la conectividad punto a punto con las antenas y los supernodos adyacentes, configuremos el OSPF.</p>
         <br />
-        <img src="images/dhcp.png" />
-        <p>Comentamos entre todos como añadirlo</p>
+        <img src="images/ospf01.png" />
       </article>
 
       <article>
-        <h1 class="title">Seguridad</h1>
+        <h1 class="title">Más configuraciones interesantes</h1>
         <hr class="title" />
-        <img class="logo shadow" src="images/shield.png" />
-        <p>Queremos protegernos todo lo posible de los ataques del exterior, así que denegaremos explícitamente cualquier conexión entrante proviniente del exterior (Router ADSL).</p>
-        <br />
-        <img src="images/filter.png" />
-        <p>Comentamos entre todos como añadirlo</p>
+        <img class="logo shadow" src="images/plus.png" />
+	<ul>
+	    <li>Habilitar SNMP para graficar correctamente.</li>
+	    <li>Script de backup de la configuración del router.</li>
+	    <li>Podéis comprobar configuraciones entrando como guest en cualquier supernodo, por ejemplo Castalia: 10.228.144.161.</li>
+	</ul>
       </article>
 
       <article>
-        <h1 class="title">Túnel PPTP: Activación</h1>
+        <h1 class="title">Nanostation</h1>
         <hr class="title" />
-        <img class="logo shadow" src="images/vpn-logo.jpg" />
-        <p>Esto es lo más complicado de lo que veremos hoy, la configuración de un túnel PPTP para permitir la conexión de clientes a la red privada virtual que permitirá salir a través del router ADSL.</p>
-        <br />
-        <img src="images/pptp01.png" />
-        <p>Comentamos entre todos como añadirlo</p>
+        <img class="logo shadow" src="images/nano.jpg" />
+	<p>En la nanostation únicamente deberemos configurar 2 apartados principales, el enlace (modo AP o modo Station) y la configuración de red (antena en modo bridge y la IP de gestión que le comunique con la omnitik).</p>
       </article>
 
-      <article>
-        <h1 class="title">Túnel PPTP: Profile</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/vpn-logo.jpg" />
-        <p>Definamos ahora el perfil más compatible con todo tipo de máquinas cliente.</p>
-        <br />
-        <img src="images/pptp02.png" />
-        <p>Comentamos entre todos como añadirlo</p>
-      </article>
-
-      <article>
-        <h1 class="title">Túnel PPTP: Pool de IP's</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/vpn-logo.jpg" />
-        <p>Si queremos asignar automáticamente una IP a un usuario, definimos un POOL de IP's asignables desde el túnel.</p>
-        <br />
-        <img src="images/vpn04.png" />
-        <p>Comentamos entre todos como añadirlos</p>
-      </article>
-
-      <article>
-        <h1 class="title">Túnel PPTP: Usuarios</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/vpn-logo.jpg" />
-        <p>Si queremos autenticar usuarios locales, deberemos definirlos en la siguiente sección.</p>
-        <br />
-        <img src="images/pptp03.png" />
-        <p>Comentamos entre todos como añadirlos</p>
-      </article>
-
-      <article>
-        <h1 class="title">Enmascaramiento hacia Internet</h1>
-        <hr class="title" />
-        <img class="logo shadow" src="images/masq.jpg" />
-        <p>Sólo nos queda permitir que el rango de IP's de los socios pueda salir a internet, así que añadimos una regla NAT que diga que si la IP origen es de socios, y va dirigido a Internet, lo enmascaramos para que el paquete tenga camino de vuelta.</p>
-        <br />
-        <img src="images/nat01.png" />
-        <p>Comentamos entre todos como añadirlos</p>
+      <article class='fill'>
+        <h3></h3>
+        <img alt="Antena cliente castalia-laplana" src="images/laplana01.png" />
+        <img alt="Configuración del enlace Wireless" src="images/laplana02.png" />
+        <img alt="Configuración de red" src="images/laplana03.png" />
+        <div class='source white'>
+            <p>Cambia de foto con las teclas: <span class="key">&uarr;</span> y <span class="key">&darr;</span></p>
+        </div>
       </article>
 
     </section>
